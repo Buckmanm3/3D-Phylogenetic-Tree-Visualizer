@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://o0ommmy2opcb"]
+
+[ext_resource type="Script" path="res://World.gd" id="1_16k3m"]
+[ext_resource type="PackedScene" uid="uid://b7th77nufxc0e" path="res://VR/player.tscn" id="2_c4f4e"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_461j7"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_16k3m")
+
+[node name="Player" parent="." instance=ExtResource("2_c4f4e")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.81303, 0.582222, 0, -0.582222, 0.81303, -0.37535, 3.02211, 3.39846)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.234542, 0, 0, 0, 0.234542, 0, 0, 0, 0.234542, 0.351692, 0, -1.29339)
+mesh = SubResource("CapsuleMesh_461j7")

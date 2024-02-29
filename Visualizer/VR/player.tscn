@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7th77nufxc0e"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v8j5n"]
+
+[node name="Player" type="Node3D"]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+current = true
+
+[node name="Right Controller" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/Right Controller"]
+transform = Transform3D(0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_v8j5n")
+
+[node name="Left Controller" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/Left Controller"]
+transform = Transform3D(0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_v8j5n")
+skeleton = NodePath("../../..")
