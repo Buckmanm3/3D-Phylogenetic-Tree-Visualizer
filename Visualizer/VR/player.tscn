@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7th77nufxc0e"]
+[gd_scene load_steps=5 format=3 uid="uid://b7th77nufxc0e"]
+
+[ext_resource type="Script" path="res://VR/player.gd" id="1_qjwog"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_v8j5n"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_ae202"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ecx5"]
+
 [node name="Player" type="Node3D"]
+script = ExtResource("1_qjwog")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
 
@@ -13,8 +20,14 @@ current = true
 tracker = &"right_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/Right Controller"]
+unique_name_in_owner = true
 transform = Transform3D(0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_v8j5n")
+
+[node name="Area3D" type="Area3D" parent="XROrigin3D/Right Controller/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Right Controller/MeshInstance3D/Area3D"]
+shape = SubResource("SphereShape3D_ae202")
 
 [node name="Left Controller" type="XRController3D" parent="XROrigin3D"]
 tracker = &"left_hand"
@@ -23,3 +36,11 @@ tracker = &"left_hand"
 transform = Transform3D(0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_v8j5n")
 skeleton = NodePath("../../..")
+
+[node name="Area3D" type="Area3D" parent="XROrigin3D/Left Controller/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Left Controller/MeshInstance3D/Area3D"]
+shape = SubResource("BoxShape3D_8ecx5")
+
+[connection signal="area_exited" from="XROrigin3D/Right Controller/MeshInstance3D/Area3D" to="." method="_on_area_3d_area_exited"]
+[connection signal="body_entered" from="XROrigin3D/Right Controller/MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]
