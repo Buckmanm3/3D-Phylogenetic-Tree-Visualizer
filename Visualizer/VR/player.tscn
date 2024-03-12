@@ -24,9 +24,9 @@ unique_name_in_owner = true
 transform = Transform3D(0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0)
 mesh = SubResource("CapsuleMesh_v8j5n")
 
-[node name="Area3D" type="Area3D" parent="XROrigin3D/Right Controller/MeshInstance3D"]
+[node name="TeleportPoint" type="Area3D" parent="XROrigin3D/Right Controller/MeshInstance3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Right Controller/MeshInstance3D/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Right Controller/MeshInstance3D/TeleportPoint"]
 shape = SubResource("SphereShape3D_ae202")
 
 [node name="Left Controller" type="XRController3D" parent="XROrigin3D"]
@@ -37,10 +37,12 @@ transform = Transform3D(0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0, 0.0162606, 0, 0,
 mesh = SubResource("CapsuleMesh_v8j5n")
 skeleton = NodePath("../../..")
 
-[node name="Area3D" type="Area3D" parent="XROrigin3D/Left Controller/MeshInstance3D"]
+[node name="TeleportMesh" type="Area3D" parent="XROrigin3D/Left Controller/MeshInstance3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Left Controller/MeshInstance3D/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh"]
 shape = SubResource("BoxShape3D_8ecx5")
 
-[connection signal="area_exited" from="XROrigin3D/Right Controller/MeshInstance3D/Area3D" to="." method="_on_area_3d_area_exited"]
-[connection signal="body_entered" from="XROrigin3D/Right Controller/MeshInstance3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[node name="TeleportOrgin" type="Node3D" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh"]
+
+[connection signal="area_exited" from="XROrigin3D/Right Controller/MeshInstance3D/TeleportPoint" to="." method="_on_area_3d_area_exited"]
+[connection signal="body_entered" from="XROrigin3D/Right Controller/MeshInstance3D/TeleportPoint" to="." method="_on_area_3d_body_entered"]
