@@ -17,7 +17,7 @@ func _ready():
 func _process(delta):
 	if (meshEntered):
 		print_debug("area entered")
-		getPos()
+		# getPos() currently crashes the application lol
 	pass 
 
 
@@ -26,17 +26,17 @@ func getPos():
 	var pos = teleportPoint.global_position.distance_to(teleportOrgin.global_position)
 	var scale = teleportMesh.scale
 	# divide cordinates by the scale of our teleport mesh
-	pos.x = pos.x / scale.x
-	pos.y = pos.y / scale.y
-	pos.z = pos.z / scale.z
+	#pos.x = pos.x / scale.x
+	#pos.y = pos.y / scale.y
+	#pos.z = pos.z / scale.z
 	# when translating to world mesh we will multiply the points by it's scale
 	return pos
 
 
 # called when teleport point on right hand enters teleport mesh on right
-func _on_area_3d_body_entered(body):
+func _on_teleport_point_area_entered(area):
 	meshEntered = true
-
+	
 
 # called when teleport point on right hand exits teleport mesh on left
 func _on_area_3d_area_exited(area):

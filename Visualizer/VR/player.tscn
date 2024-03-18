@@ -1,10 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7th77nufxc0e"]
+[gd_scene load_steps=7 format=3 uid="uid://b7th77nufxc0e"]
 
 [ext_resource type="Script" path="res://VR/Scripts/player.gd" id="1_qjwog"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_v8j5n"]
+[sub_resource type="SphereMesh" id="SphereMesh_w5om5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ae202"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dhry"]
+transparency = 1
+blend_mode = 1
+cull_mode = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_ty151"]
+material = SubResource("StandardMaterial3D_7dhry")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ecx5"]
 
@@ -17,12 +25,13 @@ script = ExtResource("1_qjwog")
 current = true
 
 [node name="Right Controller" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0370281, -8.04886e-05, 0.000199657)
 tracker = &"right_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/Right Controller"]
 unique_name_in_owner = true
 transform = Transform3D(0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_v8j5n")
+mesh = SubResource("SphereMesh_w5om5")
 
 [node name="TeleportPoint" type="Area3D" parent="XROrigin3D/Right Controller/MeshInstance3D"]
 
@@ -30,11 +39,12 @@ mesh = SubResource("CapsuleMesh_v8j5n")
 shape = SubResource("SphereShape3D_ae202")
 
 [node name="Left Controller" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0290942, 0, 0)
 tracker = &"left_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/Left Controller"]
-transform = Transform3D(0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_v8j5n")
+transform = Transform3D(0.0477502, 0, 0, 0, 0.0477502, 0, 0, 0, 0.0477502, 0, 0, 0)
+mesh = SubResource("BoxMesh_ty151")
 skeleton = NodePath("../../..")
 
 [node name="TeleportMesh" type="Area3D" parent="XROrigin3D/Left Controller/MeshInstance3D"]
@@ -44,5 +54,5 @@ shape = SubResource("BoxShape3D_8ecx5")
 
 [node name="TeleportOrgin" type="Node3D" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh"]
 
+[connection signal="area_entered" from="XROrigin3D/Right Controller/MeshInstance3D/TeleportPoint" to="." method="_on_teleport_point_area_entered"]
 [connection signal="area_exited" from="XROrigin3D/Right Controller/MeshInstance3D/TeleportPoint" to="." method="_on_area_3d_area_exited"]
-[connection signal="body_entered" from="XROrigin3D/Right Controller/MeshInstance3D/TeleportPoint" to="." method="_on_area_3d_body_entered"]
