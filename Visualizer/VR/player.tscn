@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7th77nufxc0e"]
 
-[ext_resource type="Script" path="res://VR/player.gd" id="1_qjwog"]
+[ext_resource type="Script" path="res://VR/Scripts/player.gd" id="1_qjwog"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_v8j5n"]
 
