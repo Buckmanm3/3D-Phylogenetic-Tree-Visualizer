@@ -1,9 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://o0ommmy2opcb"]
+[gd_scene load_steps=7 format=3 uid="uid://o0ommmy2opcb"]
 
 [ext_resource type="Script" path="res://World.gd" id="1_16k3m"]
 [ext_resource type="PackedScene" uid="uid://b7th77nufxc0e" path="res://VR/player.tscn" id="2_c4f4e"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_461j7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5bmgb"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ldqhi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knsg3"]
+transparency = 1
+blend_mode = 1
+depth_draw_mode = 1
+shading_mode = 0
+albedo_color = Color(0, 0.266667, 0.266667, 1)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_16k3m")
@@ -16,3 +27,17 @@ transform = Transform3D(1, 0, 0, 0, 0.81303, 0.582222, 0, -0.582222, 0.81303, -0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.234542, 0, 0, 0, 0.234542, 0, 0, 0, 0.234542, 0.351692, 0, -1.29339)
 mesh = SubResource("CapsuleMesh_461j7")
+
+[node name="TeleportMesh" type="Area3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportMesh"]
+shape = SubResource("BoxShape3D_5bmgb")
+
+[node name="TeleportOrgin" type="Node3D" parent="TeleportMesh"]
+
+[node name="TeleportProjection" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_ldqhi")
+surface_material_override/0 = SubResource("StandardMaterial3D_knsg3")
