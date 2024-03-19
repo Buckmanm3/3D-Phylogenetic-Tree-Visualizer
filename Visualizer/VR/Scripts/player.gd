@@ -32,7 +32,7 @@ func _process(delta):
 	pass
 	
 
-# erin edit
+
 # TODO get position of teleport relative to 
 func getPos():
 	var pos = teleportPoint.global_position.distance_to(teleportOrgin.global_position)
