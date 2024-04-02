@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://6yj852q76bro"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pas7q"]
+height = 5.466
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_os5ut"]
+radius = 0.4
+height = 8.921
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8ombv"]
+radius = 0.4
+height = 8.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_aevny"]
+radius = 0.4
+height = 7.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cr6gy"]
+radius = 0.4
+height = 6.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gjlhw"]
+radius = 0.4
+height = 4.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gucha"]
+radius = 0.4
+height = 3.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uxj7c"]
+radius = 0.4
+
+[sub_resource type="TextMesh" id="TextMesh_agsq1"]
+text = "homosapiens"
+font_size = 22
+
+[sub_resource type="TextMesh" id="TextMesh_y8w0u"]
+text = "pan troglodytes"
+font_size = 30
+
+[sub_resource type="TextMesh" id="TextMesh_oy1rx"]
+text = "gorilla"
+font_size = 30
+
+[node name="Humans" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.583228, 0, 0)
+
+[node name="stump" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200765, -0.775371, 0)
+mesh = SubResource("CylinderMesh_pas7q")
+
+[node name="branch" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0889637, 0.763735, -0.63937, 0.033332, 0.643838, 0.764435, 0.995477, 0.0466955, -0.0827351, 3.3045, 3.56108, 0.201178)
+mesh = SubResource("CapsuleMesh_os5ut")
+
+[node name="branch2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.683672, -0.718931, -0.12542, 0.724653, 0.689114, 2.15984e-17, 0.0864285, -0.0908859, 0.992104, -2.44664, 4.06696, -0.306825)
+mesh = SubResource("CapsuleMesh_8ombv")
+
+[node name="branch3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.881537, -0.662632, -0.133844, 0.838683, 0.707042, 0.0205674, 0.0929313, -0.0952307, 1.08402, -0.580143, 4.33774, -0.202967)
+mesh = SubResource("CapsuleMesh_aevny")
+
+[node name="branch4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.245778, -0.7472, 0.617483, -0.315293, -0.664007, -0.678, 0.916615, -0.0280505, -0.398785, 2.40184, 5.18187, 0.0372088)
+mesh = SubResource("CapsuleMesh_cr6gy")
+
+[node name="branch5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.717154, -0.696915, 0, 0.689924, 0.70996, 0.141281, -0.0984611, -0.10132, 0.989969, 0.309764, 5.64912, -0.134522)
+mesh = SubResource("CapsuleMesh_gjlhw")
+
+[node name="branch6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.718952, 0.69506, 0, -0.69506, 0.718952, 0, 0, 0, 1, 1.70319, 6.20448, -0.0923436)
+mesh = SubResource("CapsuleMesh_gucha")
+
+[node name="branch7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.722267, -0.691614, 0, 0.687788, 0.718272, 0.105032, -0.0726415, -0.0758611, 0.994469, 0.958533, 6.74839, -0.146903)
+mesh = SubResource("CapsuleMesh_uxj7c")
+
+[node name="homosapiens text" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.15212, -0.0196688, 0.0903116, -0.00445585, 1.53684, 0.137197, -0.120828, -0.244222, 0.856079, -0.729734, 7.36856, -0.273283)
+mesh = SubResource("TextMesh_agsq1")
+
+[node name="pan troglodytes text" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.779232, 7.74012, -0.342545)
+mesh = SubResource("TextMesh_y8w0u")
+
+[node name="gorilla text" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.46613, 7.87058, -0.207432)
+mesh = SubResource("TextMesh_oy1rx")
