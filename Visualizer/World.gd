@@ -1,11 +1,13 @@
 extends Node3D
 
+# variables
 var interface : XRInterface
 var pointPos: Vector3
 var timer: Timer 
 var meshEntered: bool
 var projection: MeshInstance3D
 var teleportMesh: Area3D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,17 +33,21 @@ func _ready():
 	
 	pass
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-# called when player tiemr runs out
+
+# called when player's tiemr runs out
 func _timeout():
+	# check if mesh is entered if so toggle visible, update pos
 	if (meshEntered):
 		projection.position = convertPos()
 		projection.visible = true
 	else:
 		projection.visible = false
+
 
 # transforms point cords to align with world mesh
 func convertPos():

@@ -1,24 +1,27 @@
 extends Node3D
+
+# variables:
 var teleportPoint: Area3D
 var teleportMesh: Area3D
 var meshEntered: bool = false
 var teleportOrgin: Node3D
 var teleportPos: Vector3
 var timer: Timer
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	teleportPoint = get_node("XROrigin3D/Right Controller/MeshInstance3D/Area3D")
 	teleportMesh = get_node("XROrigin3D/Left Controller/MeshInstance3D/Area3D")
 	teleportOrgin = get_node("XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin")
-	
 	# initalize timer to control how often we check the pos of teleport point
 	timer = Timer.new()
 	add_child(timer)
 	timer.autostart = true
 	timer.wait_time = 0.5  # timer will check every .5 seconds
 	timer.connect("timeout", _timeout)
-	
 	pass
+
 
 # called by timer node created in _ready()
 func _timeout():
@@ -27,13 +30,12 @@ func _timeout():
 		teleportPos = getPos()
 	pass 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta):		
 	pass
-	
 
 
-# TODO get position of teleport relative to 
 func getPos():
 	var pos = teleportPoint.global_position.distance_to(teleportOrgin.global_position)
 	var scale = teleportMesh.scale
@@ -50,6 +52,13 @@ func _on_teleport_point_area_entered(area):
 	meshEntered = true
 	
 
+
 # called when teleport point on right hand exits teleport mesh on left
 func _on_area_3d_area_exited(area):
 	meshEntered = false
+
+
+func _on_right_controller_button_pressed(name):
+	print(name)
+	pass # Replace with function body.
+
