@@ -49,10 +49,8 @@ func _timeout():
 # transforms point cords to align with world mesh
 func convertPos():
 	var newPos: Vector3
-	var scale = teleportMesh.scale
-	var pointPos = teleport["teleportPos"]
-	newPos.x = pointPos.x * scale.x
-	newPos.y = pointPos.y * scale.y
-	newPos.z = pointPos.z * scale.z
+	var current: Vector3 = teleport["teleportPos"]
+	var scale: Vector3 = teleportMesh.scale
+	newPos = current * scale
 	return newPos
 	

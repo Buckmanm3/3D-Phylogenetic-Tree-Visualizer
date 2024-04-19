@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://o0ommmy2opcb"]
 
-[ext_resource type="Script" path="res://World.gd" id="1_16k3m"]
+[ext_resource type="Script" path="res://VR/Scripts/World.gd" id="1_16k3m"]
 [ext_resource type="PackedScene" uid="uid://b7th77nufxc0e" path="res://VR/player.tscn" id="2_c4f4e"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_461j7"]

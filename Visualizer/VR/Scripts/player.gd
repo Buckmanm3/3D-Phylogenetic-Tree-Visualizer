@@ -39,12 +39,12 @@ func _timeout():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	pass  # using timer signal rather than delta
 
 
 func getPos():
 	var pos = teleportPoint.global_position.direction_to(teleportOrgin.global_position)
-	var scale = teleportMesh.global_scale
+	var scale = teleportMesh.scale
 	# divide cordinates by the scale of our teleport mesh
 	pos = pos / scale
 	# when translating to world mesh we will multiply the points by it's scale
@@ -53,7 +53,7 @@ func getPos():
 
 # called when teleport point on right hand enters teleport mesh on right
 func _on_teleport_point_area_entered(area):
-	
+	print("Meshe Entered!")
 	meshEntered = true
 	
 
@@ -75,8 +75,7 @@ func _on_right_controller_button_pressed(name):
 
 func _on_timer_timeout():
 	print("Timer:")
-	if (meshEntered):
-		print("Mesh Entered!")
+	if (meshEntered == true):
 		teleportPos = getPos()
 		print("current pos" + str(teleportPos))
 	pass 
