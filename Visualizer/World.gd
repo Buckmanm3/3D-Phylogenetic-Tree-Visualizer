@@ -2,12 +2,10 @@ extends Node3D
 
 # variables
 var interface : XRInterface
-var pointPos: Vector3
 var timer: Timer 
-var meshEntered: bool
 var projection: MeshInstance3D
 var teleportMesh: Area3D
-
+var teleport: Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,8 +20,7 @@ func _ready():
 		
 	# get refrences to player's script variables
 	var player = get_node("Player")
-	meshEntered = player.meshEntered
-	pointPos = player.teleportPos
+	teleport = player.teleport
 	timer = player.timer
 	timer.connect("timeout", _timeout)
 	
@@ -42,7 +39,7 @@ func _process(delta):
 # called when player's tiemr runs out
 func _timeout():
 	# check if mesh is entered if so toggle visible, update pos
-	if (meshEntered):
+	if (teleport["meshEntered"]):
 		projection.position = convertPos()
 		projection.visible = true
 	else:
@@ -53,6 +50,7 @@ func _timeout():
 func convertPos():
 	var newPos: Vector3
 	var scale = teleportMesh.scale
+	var pointPos = teleport["teleportPos"]
 	newPos.x = pointPos.x * scale.x
 	newPos.y = pointPos.y * scale.y
 	newPos.z = pointPos.z * scale.z

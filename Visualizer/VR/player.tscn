@@ -38,12 +38,14 @@ mesh = SubResource("SphereMesh_w5om5")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Right Controller/MeshInstance3D/TeleportPoint"]
 shape = SubResource("SphereShape3D_ae202")
 
+[node name="TPPoint" type="Node3D" parent="XROrigin3D/Right Controller/MeshInstance3D/TeleportPoint"]
+
 [node name="Left Controller" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0290942, 0, 0)
 tracker = &"left_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/Left Controller"]
-transform = Transform3D(0.0477502, 0, 0, 0, 0.0477502, 0, 0, 0, 0.0477502, 0, 0, 0)
+transform = Transform3D(0.0736208, 0, 0, 0, 0.0736208, 0, 0, 0, 0.0736208, 0, 0, 0)
 mesh = SubResource("BoxMesh_ty151")
 skeleton = NodePath("../../..")
 
@@ -54,6 +56,11 @@ shape = SubResource("BoxShape3D_8ecx5")
 
 [node name="TeleportOrgin" type="Node3D" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh"]
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [connection signal="button_pressed" from="XROrigin3D/Right Controller" to="." method="_on_right_controller_button_pressed"]
 [connection signal="area_entered" from="XROrigin3D/Right Controller/MeshInstance3D/TeleportPoint" to="." method="_on_teleport_point_area_entered"]
 [connection signal="area_exited" from="XROrigin3D/Right Controller/MeshInstance3D/TeleportPoint" to="." method="_on_area_3d_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
