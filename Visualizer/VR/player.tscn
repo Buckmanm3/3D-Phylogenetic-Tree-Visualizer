@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7th77nufxc0e"]
+[gd_scene load_steps=9 format=3 uid="uid://b7th77nufxc0e"]
 
 [ext_resource type="Script" path="res://VR/Scripts/player.gd" id="1_qjwog"]
+[ext_resource type="PackedScene" uid="uid://dfnn0bkaebfqq" path="res://Trees/Lorenzo.tscn" id="2_ij880"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_w5om5"]
 
@@ -14,6 +15,20 @@ cull_mode = 1
 [sub_resource type="BoxMesh" id="BoxMesh_ty151"]
 material = SubResource("StandardMaterial3D_7dhry")
 
+[sub_resource type="GDScript" id="GDScript_keao7"]
+script/source = "extends MeshInstance3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	rotation = Vector3(0,0,0)
+"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ecx5"]
 
 [node name="Player" type="Node3D"]
@@ -25,12 +40,12 @@ script = ExtResource("1_qjwog")
 current = true
 
 [node name="Right Controller" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0370281, -8.04886e-05, 0.000199657)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131693, 0.0693187, 0.000199657)
 tracker = &"right_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/Right Controller"]
 unique_name_in_owner = true
-transform = Transform3D(0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0, 0.0162606, 0, 0, 0)
+transform = Transform3D(0.00901878, 0, 0, 0, 0.00901878, 0, 0, 0, 0.00901878, 0, 0, 0)
 mesh = SubResource("SphereMesh_w5om5")
 
 [node name="TeleportPoint" type="Area3D" parent="XROrigin3D/Right Controller/MeshInstance3D"]
@@ -41,23 +56,27 @@ shape = SubResource("SphereShape3D_ae202")
 [node name="TPPoint" type="Node3D" parent="XROrigin3D/Right Controller/MeshInstance3D/TeleportPoint"]
 
 [node name="Left Controller" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0290942, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14958, 0.0250351, -4.43757e-05)
 tracker = &"left_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/Left Controller"]
-transform = Transform3D(0.0736208, 0, 0, 0, 0.0736208, 0, 0, 0, 0.0736208, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.155409, 0.0374454)
 mesh = SubResource("BoxMesh_ty151")
 skeleton = NodePath("../../..")
+script = SubResource("GDScript_keao7")
 
 [node name="TeleportMesh" type="Area3D" parent="XROrigin3D/Left Controller/MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh"]
 shape = SubResource("BoxShape3D_8ecx5")
 
+[node name="Lorenzo" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh" instance=ExtResource("2_ij880")]
+transform = Transform3D(-0.025, 0, 2.18557e-09, 0, 0.025, 0, -2.18557e-09, 0, -0.025, -0.128958, -0.25, 0.04)
+
 [node name="TeleportOrgin" type="Node3D" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh"]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
 autostart = true
 
 [connection signal="button_pressed" from="XROrigin3D/Right Controller" to="." method="_on_right_controller_button_pressed"]

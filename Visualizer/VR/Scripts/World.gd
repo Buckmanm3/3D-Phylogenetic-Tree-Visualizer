@@ -2,10 +2,10 @@ extends Node3D
 
 # variables
 var interface : XRInterface
-var timer: Timer 
 var projection: MeshInstance3D
 var teleportMesh: Area3D
 var teleport: Dictionary
+var Player
 var orgin: Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,10 +19,8 @@ func _ready():
 		print("Error VR incorrectly launched")
 		
 	# get refrences to player's script variables
-	var player = get_node("Player")
-	teleport = player.teleport
-	timer = player.timer
-	timer.connect("timeout", _timeout)
+	Player = get_node("Player")
+	teleport = Player.teleport
 	
 	# get refrences to child nodes
 	projection = get_node("TeleportProjection")
@@ -33,25 +31,22 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
-
-
-# called when player's tiemr runs out
-func _timeout():
-	# check if mesh is entered if so toggle visible, update pos
-	if (teleport["meshEntered"]): # dict refrence so value is passed by refrence rather than value
-		projection.position = convertPos()
-		projection.visible = true
-	else:
-		projection.visible = false
-
+	pass # using timer instead to control how often pos is updated
 
 # transforms point cords to align with world mesh
 func convertPos():
 	var newPos: Vector3
-	var current: Vector3 = teleport["teleportPos"]
+	var current: Vector3 = Player.teleportPos
 	var scale: Vector3 = teleportMesh.scale
-	newPos = current * scale
-	newPos = newPos.direction_to(orgin.global_position)
+	newPos = current.direction_to(orgin.global_position) * scale
 	return newPos
-	
+
+
+# checks if player is trying to teleport
+func _on_timer_timeout():
+	var ready = Player.meshEntered
+	if (ready): # dict refrence so value is passed by refrence rather than value
+		projection.position = convertPos()
+		projection.visible = true
+	else:
+		projection.visible = false
