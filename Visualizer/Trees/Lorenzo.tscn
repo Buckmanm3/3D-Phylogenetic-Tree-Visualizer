@@ -46,7 +46,7 @@ text = "Chimp"
 font_size = 100
 
 [sub_resource type="TextMesh" id="TextMesh_4bik3"]
-text = "Cladograms"
+text = "Cladograms!"
 font_size = 120
 uppercase = true
 
@@ -165,3 +165,6 @@ mesh = SubResource("TextMesh_c32uk")
 [node name="MeshInstance3D25" type="MeshInstance3D" parent="."]
 transform = Transform3D(-8.18933, 0, -0.314771, 0, 6.62769, 0, 0.663501, 0, -3.8851, -13.8969, 10.2445, -1.50311)
 mesh = SubResource("TextMesh_o5i36")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -23.6506)

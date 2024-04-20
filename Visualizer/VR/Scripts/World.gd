@@ -6,7 +6,7 @@ var timer: Timer
 var projection: MeshInstance3D
 var teleportMesh: Area3D
 var teleport: Dictionary
-
+var orgin: Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -27,7 +27,7 @@ func _ready():
 	# get refrences to child nodes
 	projection = get_node("TeleportProjection")
 	teleportMesh = get_node("TeleportMesh")
-	
+	orgin = get_node("TeleportMesh/TeleportOrgin")
 	pass
 
 
@@ -39,7 +39,7 @@ func _process(delta):
 # called when player's tiemr runs out
 func _timeout():
 	# check if mesh is entered if so toggle visible, update pos
-	if (teleport["meshEntered"]):
+	if (teleport["meshEntered"]): # dict refrence so value is passed by refrence rather than value
 		projection.position = convertPos()
 		projection.visible = true
 	else:
@@ -52,5 +52,6 @@ func convertPos():
 	var current: Vector3 = teleport["teleportPos"]
 	var scale: Vector3 = teleportMesh.scale
 	newPos = current * scale
+	newPos = newPos.direction_to(orgin.global_position)
 	return newPos
 	
