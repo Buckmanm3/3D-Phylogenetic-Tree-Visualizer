@@ -59,7 +59,7 @@ text = "gorilla"
 font_size = 30
 
 [node name="Humans" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.362836, 0.251705, -0.0879745)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24019, 3.72425, 0.494772)
 
 [node name="stump" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200765, -0.775371, 0)
