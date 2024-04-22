@@ -42,7 +42,7 @@ script = ExtResource("1_qjwog")
 current = true
 
 [node name="Right Controller" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131693, 0.0693187, 0.000199657)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131693, 0.0941012, 0.000199657)
 tracker = &"right_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/Right Controller"]

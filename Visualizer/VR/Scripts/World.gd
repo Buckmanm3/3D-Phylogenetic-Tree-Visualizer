@@ -4,7 +4,6 @@ extends Node3D
 var interface : XRInterface
 var projection: MeshInstance3D
 var teleportMesh: Area3D
-var teleport: Dictionary
 var Player
 var orgin: Node3D
 # Called when the node enters the scene tree for the first time.
@@ -20,10 +19,9 @@ func _ready():
 		
 	# get refrences to player's script variables
 	Player = get_node("Player")
-	teleport = Player.teleport
 	
 	# get refrences to child nodes
-	projection = get_node("TeleportProjection")
+	projection = get_node("TeleportMesh/TeleportOrgin/TeleportProjection")
 	teleportMesh = get_node("TeleportMesh")
 	orgin = get_node("TeleportMesh/TeleportOrgin")
 	pass
@@ -37,14 +35,18 @@ func _process(delta):
 func convertPos():
 	var current: Vector3 = Player.teleportPos
 	var scale: Vector3 = teleportMesh.scale
-	return current * scale
-
+	return current * (scale * .25)
 
 # checks if player is trying to teleport
 func _on_timer_timeout():
 	var ready = Player.meshEntered
 	if (ready): # dict refrence so value is passed by refrence rather than value
-		projection.position = convertPos()
+		var pos = convertPos()
+		projection.position = pos
 		projection.visible = true
+		var teleporting = Player.teleporting
+		if (teleporting):
+			Player.global_position = projection.global_position
+		Player.teleporting = false
 	else:
 		projection.visible = false
