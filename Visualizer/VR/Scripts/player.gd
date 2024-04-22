@@ -38,7 +38,7 @@ func _process(delta):
 
 func getPos():
 	var scale = teleportMesh.scale # no need for scale as direction_to is already normalized
-	var pos = teleportPoint.global_position.direction_to(teleportOrgin.global_position)
+	var pos = teleportPoint.global_position.direction_to(teleportOrgin.global_position) * -1
 	return pos
 
 
