@@ -1,8 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://o0ommmy2opcb"]
+[gd_scene load_steps=10 format=3 uid="uid://o0ommmy2opcb"]
 
 [ext_resource type="Script" path="res://VR/Scripts/World.gd" id="1_16k3m"]
 [ext_resource type="PackedScene" uid="uid://b7th77nufxc0e" path="res://VR/player.tscn" id="2_c4f4e"]
-[ext_resource type="PackedScene" uid="uid://dfnn0bkaebfqq" path="res://Trees/Lorenzo.tscn" id="3_8van5"]
+[ext_resource type="PackedScene" uid="uid://dfnn0bkaebfqq" path="res://Trees/Lorenzo.tscn" id="3_ta0vv"]
+[ext_resource type="PackedScene" uid="uid://bw4hmbdh2btwa" path="res://Trees/dinosaurs.tscn" id="4_r1x2o"]
+[ext_resource type="PackedScene" uid="uid://6yj852q76bro" path="res://Trees/Humans.tscn" id="5_qnxjr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_461j7"]
+
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5bmgb"]
 
@@ -32,8 +37,18 @@ shape = SubResource("BoxShape3D_5bmgb")
 
 [node name="TeleportOrgin" type="Node3D" parent="TeleportMesh"]
 
-[node name="Lorenzo" parent="TeleportMesh/TeleportOrgin" instance=ExtResource("3_8van5")]
-transform = Transform3D(-0.025, 0, -2.18557e-09, 0, 0.025, 0, 2.18557e-09, 0, -0.025, -0.129, -0.25, 0.04)
+
+[node name="Lorenzo" parent="TeleportMesh/TeleportOrgin" instance=ExtResource("3_ta0vv")]
+transform = Transform3D(-0.025, 8.71967e-18, -2.18557e-09, 8.71967e-18, 0.025, -8.71967e-18, 2.18557e-09, -8.71967e-18, -0.025, -0.129, -0.25, 0.04)
+visible = false
+
+[node name="Dinosaurs" parent="TeleportMesh/TeleportOrgin" instance=ExtResource("4_r1x2o")]
+transform = Transform3D(-0.05, 1.74393e-17, -7.54979e-09, 1.74393e-17, 0.05, -1.74393e-17, 7.54979e-09, -1.74393e-17, -0.05, 0.007, -0.171, 2.08165e-12)
+visible = false
+
+[node name="Humans" parent="TeleportMesh/TeleportOrgin" instance=ExtResource("5_qnxjr")]
+transform = Transform3D(0.05, -1.74393e-17, 1.74393e-17, 1.74393e-17, 0.05, -1.74393e-17, -1.74393e-17, 1.74393e-17, 0.05, 2.08165e-12, -0.017, 2.08165e-12)
+
 
 [node name="TeleportProjection" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
