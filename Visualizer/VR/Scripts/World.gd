@@ -35,11 +35,9 @@ func _process(delta):
 
 # transforms point cords to align with world mesh
 func convertPos():
-	var newPos: Vector3
 	var current: Vector3 = Player.teleportPos
 	var scale: Vector3 = teleportMesh.scale
-	newPos = current.direction_to(orgin.global_position) * scale
-	return newPos
+	return current * scale
 
 
 # checks if player is trying to teleport
