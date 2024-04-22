@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7th77nufxc0e"]
+[gd_scene load_steps=11 format=3 uid="uid://b7th77nufxc0e"]
 
 [ext_resource type="Script" path="res://VR/Scripts/player.gd" id="1_qjwog"]
-[ext_resource type="PackedScene" uid="uid://dfnn0bkaebfqq" path="res://Trees/Lorenzo.tscn" id="2_2kuin"]
+[ext_resource type="PackedScene" uid="uid://dfnn0bkaebfqq" path="res://Trees/Lorenzo.tscn" id="2_ij880"]
 [ext_resource type="PackedScene" uid="uid://bw4hmbdh2btwa" path="res://Trees/dinosaurs.tscn" id="3_vrc8s"]
 [ext_resource type="PackedScene" uid="uid://6yj852q76bro" path="res://Trees/Humans.tscn" id="4_ypydm"]
-
 
 [sub_resource type="SphereMesh" id="SphereMesh_w5om5"]
 
@@ -73,28 +72,24 @@ script = SubResource("GDScript_keao7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh"]
 shape = SubResource("BoxShape3D_8ecx5")
 
-[node name="Lorenzo" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh" instance=ExtResource("2_ij880")]
-transform = Transform3D(-0.025, 0, 2.18557e-09, 0, 0.025, 0, -2.18557e-09, 0, -0.025, -0.128958, -0.25, 0.04)
-
 [node name="TeleportOrgin" type="Node3D" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh"]
 
-[node name="Lorenzo" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh" instance=ExtResource("2_2kuin")]
-transform = Transform3D(-0.025, 8.71967e-18, -2.18557e-09, 8.71967e-18, 0.025, -8.71967e-18, 2.18557e-09, -8.71967e-18, -0.025, -0.129, -0.25, 0.04)
+[node name="Lorenzo" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin" instance=ExtResource("2_ij880")]
+transform = Transform3D(-0.025, 0, 2.18557e-09, 0, 0.025, 0, -2.18557e-09, 0, -0.025, -0.128958, -0.25, 0.04)
+
+[node name="Dinosaurs" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin" instance=ExtResource("3_vrc8s")]
+transform = Transform3D(-0.05, 0, 4.37114e-09, 0, 0.05, 0, -4.37114e-09, 0, -0.05, 0.007, -0.171, 0)
 visible = false
 
-[node name="Dinosaurs" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh" instance=ExtResource("3_vrc8s")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.007, -0.171, 2.08165e-12)
+[node name="Humans" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin" instance=ExtResource("4_ypydm")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.129, -0.25, 0.004)
 visible = false
-
-[node name="Humans" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh" instance=ExtResource("4_ypydm")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 2.08165e-12, -0.171, 2.08165e-12)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
 
 [connection signal="button_pressed" from="XROrigin3D/Right Controller" to="." method="_on_right_controller_button_pressed"]
-
 [connection signal="area_entered" from="XROrigin3D/Right Controller/MeshInstance3D/TeleportPoint" to="." method="_on_teleport_point_area_entered"]
 [connection signal="area_exited" from="XROrigin3D/Right Controller/MeshInstance3D/TeleportPoint" to="." method="_on_area_3d_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
