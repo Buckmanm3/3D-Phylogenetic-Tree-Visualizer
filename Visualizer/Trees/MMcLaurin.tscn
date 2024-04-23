@@ -1,0 +1,162 @@
+[gd_scene load_steps=22 format=3 uid="uid://btd8fexg00kh2"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cjtf1"]
+height = 20.571
+rings = 2
+
+[sub_resource type="TextMesh" id="TextMesh_fh761"]
+text = "Viruses
+"
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xl270"]
+height = 13.905
+
+[sub_resource type="TextMesh" id="TextMesh_rmo43"]
+text = "Fever
+"
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wi4wi"]
+height = 6.762
+
+[sub_resource type="TextMesh" id="TextMesh_jhlde"]
+text = "Rash
+"
+
+[sub_resource type="TextMesh" id="TextMesh_f8pyu"]
+text = "Chicken Pox"
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gj4rg"]
+height = 6.286
+
+[sub_resource type="TextMesh" id="TextMesh_l11p6"]
+text = "Loss Of Taste
+"
+
+[sub_resource type="TextMesh" id="TextMesh_tm3v0"]
+text = "Covid-19
+"
+
+[sub_resource type="TextMesh" id="TextMesh_gee3l"]
+text = "Flu
+"
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5gucx"]
+height = 10.095
+
+[sub_resource type="TextMesh" id="TextMesh_urgpp"]
+text = "Swollen Lymph Nodes"
+
+[sub_resource type="TextMesh" id="TextMesh_1sarv"]
+text = "Strep
+Throat"
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2wcoh"]
+height = 2.953
+
+[sub_resource type="TextMesh" id="TextMesh_j4xb6"]
+text = "Fatigue
+"
+
+[sub_resource type="TextMesh" id="TextMesh_1dd4n"]
+text = "Mono"
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lacyk"]
+height = 4.381
+
+[sub_resource type="TextMesh" id="TextMesh_vam4i"]
+text = "Red Eyes"
+
+[sub_resource type="TextMesh" id="TextMesh_v7u0e"]
+text = "Measles"
+
+[sub_resource type="TextMesh" id="TextMesh_mfuvc"]
+text = "Common
+Cold"
+line_spacing = -8.0
+
+[node name="MMcLaurin" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0668316, 0.918484, 1.48794)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.886082, -0.463528, 0, 0.463528, 0.886082, -0.0165324, 2.7857, 1.39475)
+mesh = SubResource("CylinderMesh_cjtf1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.81577, -2.44581, -7.39736, 7.02922, 3.79039, 0.472177, 3.36051, -6.60689, 3.00933, -0.0466969, -2.43265, -2.80563)
+mesh = SubResource("TextMesh_fh761")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.959567, -0.00088786, 0.281478, 0.134684, -0.879539, 0.456368, 0.247166, 0.475826, 0.844097, -0.217253, 8.6814, -2.54112)
+mesh = SubResource("CylinderMesh_xl270")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.10797, -4.38372, -2.66899, -1.98058, 1.85409, -5.3516, 4.73475, 3.65313, -0.486642, 0.0204861, 9.08439, -0.659339)
+mesh = SubResource("TextMesh_rmo43")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.735945, -0.172503, -0.654697, -0.469206, 0.567172, -0.676876, 0.488089, 0.805331, 0.336468, 0.786711, 3.36149, -4.01257)
+mesh = SubResource("CylinderMesh_wi4wi")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.01585, -3.32376, -1.98006, 1.71033, 1.45046, -3.31224, 3.47028, -1.68782, 1.05282, 0.0177174, 4.0146, -4.01082)
+mesh = SubResource("TextMesh_jhlde")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.66568, -0.744613, -4.16409, 0.536838, 4.94168, -0.539997, 4.19594, -0.159197, 2.71454, 0.00316501, 0.178659, -5.50859)
+mesh = SubResource("TextMesh_f8pyu")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.937588, 0.217738, 0.271144, -0.339983, -0.410087, -0.84631, -0.0730812, -0.885674, 0.45852, 0.0423145, 7.6721, -6.03578)
+mesh = SubResource("CylinderMesh_gj4rg")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.375474, -2.78041, -1.06224, 1.84062, 0.62449, -2.2852, 2.33905, -0.937738, 1.62773, 0, 8.95886, -7.35414)
+mesh = SubResource("TextMesh_l11p6")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.60553, -3.38614, -2.59717, 2.20737, 3.67368, -2.57519, 3.65222, 0.195368, 3.40927, 0, 4.15856, -8.26977)
+mesh = SubResource("TextMesh_tm3v0")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.574941, -4.94123, -0.503696, 1.18831, 0.629178, -4.81581, 4.82259, 0.434052, 1.24669, 0, 18.4364, -8.01221)
+mesh = SubResource("TextMesh_gee3l")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.990773, -0.0625031, 0.120261, 0.135518, 0.470234, -0.872075, -0.00204347, 0.880326, 0.474365, 0, -0.0934701, 3.2711)
+mesh = SubResource("CylinderMesh_5gucx")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.49097, -0.32793, -1.97977, 1.21519, 1.81523, -1.21584, 1.59697, -1.68743, -0.92318, -0.00998497, 0.879081, 3.04346)
+mesh = SubResource("TextMesh_urgpp")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.52946, -1.15605, -1.48541, -0.552611, 3.65397, -1.53073, 1.79931, -1.14545, -3.38385, 0, 2.78281, 12.3577)
+mesh = SubResource("TextMesh_1sarv")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.726575, 0.56895, -0.385208, 1.95544e-16, 0.560639, 0.82806, 0.687087, -0.601648, 0.407346, 0, -1.164, 4.35862)
+mesh = SubResource("CylinderMesh_2wcoh")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.44909, -0.594223, -1.62753, -1.40262, 2.33435, 1.25836, 1.01716, 1.78821, -2.1835, 0, -2.17352, 4.11585)
+mesh = SubResource("TextMesh_j4xb6")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.91468, 0.47371, -0.788385, 1.49484e-15, 4.28584, 2.57519, 0.919757, 2.53125, -4.2127, 0, -3.87274, 9.99662)
+mesh = SubResource("TextMesh_1dd4n")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.472534, -0.662466, 0.581249, 0.806444, 0.0590064, -0.588359, 0.35547, 0.746765, 0.562124, -0.0445271, 3.96434, 3.80122)
+mesh = SubResource("CylinderMesh_lacyk")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.93521, -1.3664, -0.798691, -0.330665, 1.5828, -1.90667, 1.54778, -1.37028, -1.40595, 0, 6.73315, 6.18532)
+mesh = SubResource("TextMesh_vam4i")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.89397, -2.64896, -0.779727, -2.19537, 2.89229, -1.67781, 1.67491, -0.785934, -3.5464, 0, 8.91732, 14.4229)
+mesh = SubResource("TextMesh_v7u0e")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.12446, -5.81789, -0.942199, -2.65647, 1.35655, -5.20605, 5.26106, -0.558514, -2.83007, 0, 17.8878, 10.0065)
+mesh = SubResource("TextMesh_mfuvc")
