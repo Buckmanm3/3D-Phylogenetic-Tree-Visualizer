@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b7th77nufxc0e"]
+[gd_scene load_steps=12 format=3 uid="uid://b7th77nufxc0e"]
 
 [ext_resource type="Script" path="res://VR/Scripts/player.gd" id="1_qjwog"]
 [ext_resource type="PackedScene" uid="uid://dfnn0bkaebfqq" path="res://Trees/Lorenzo.tscn" id="2_ij880"]
 [ext_resource type="PackedScene" uid="uid://bw4hmbdh2btwa" path="res://Trees/dinosaurs.tscn" id="3_vrc8s"]
 [ext_resource type="PackedScene" uid="uid://6yj852q76bro" path="res://Trees/Humans.tscn" id="4_ypydm"]
+[ext_resource type="PackedScene" uid="uid://btd8fexg00kh2" path="res://Trees/MMcLaurin.tscn" id="5_mgsva"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_w5om5"]
 
@@ -83,6 +84,10 @@ visible = false
 
 [node name="Dinosaurs" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin" instance=ExtResource("3_vrc8s")]
 transform = Transform3D(-0.05, 0, 4.37114e-09, 0, 0.05, 0, -4.37114e-09, 0, -0.05, 0.00699997, -0.171, 0)
+visible = false
+
+[node name="MMcLaurin" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin" instance=ExtResource("5_mgsva")]
+transform = Transform3D(-1.74846e-09, 0, 0.04, 0, 0.04, 0, -0.04, 0, -1.74846e-09, -0.099, -0.25, -0.15)
 visible = false
 
 [node name="Timer" type="Timer" parent="."]

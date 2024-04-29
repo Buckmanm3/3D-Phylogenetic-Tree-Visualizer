@@ -18,7 +18,7 @@ func _ready():
 	trees.append(get_node("XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin/Lorenzo"))
 	trees.append(get_node("XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin/Humans"))
 	trees.append(get_node("XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin/Dinosaurs"))
-
+	trees.append(get_node("XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin/MMcLaurin"))
 
 # called by timer node created in _ready()
 func _timeout():
@@ -32,7 +32,7 @@ func _process(delta):
 func setTree():
 	for t in trees:
 		t.visible = false
-	trees[active%len(trees)].vivisible = true
+	trees[active%len(trees)].visible = true
 
 func getPos():
 	return ((teleportOrgin.global_position - teleportPoint.global_position) / scale) * -1

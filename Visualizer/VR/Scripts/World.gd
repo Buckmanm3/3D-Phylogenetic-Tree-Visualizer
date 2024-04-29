@@ -30,6 +30,7 @@ func _ready():
 	trees.append(get_node("TeleportMesh/TeleportOrgin/Lorenzo"))
 	trees.append(get_node("TeleportMesh/TeleportOrgin/Humans"))
 	trees.append(get_node("TeleportMesh/TeleportOrgin/Dinosaurs"))
+	trees.append(get_node("TeleportMesh/TeleportOrgin/MMcLaurin"))
 	pass
 
 
@@ -66,4 +67,4 @@ func _on_player_swap_tree(index):
 func setTree():
 	for t in trees:
 		t.visible = false
-	trees[active%len(trees)].vivisible = true
+	trees[active%len(trees)].visible = true
