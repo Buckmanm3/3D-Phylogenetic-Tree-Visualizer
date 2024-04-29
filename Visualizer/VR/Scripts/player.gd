@@ -16,9 +16,8 @@ func _ready():
 	
 	# trees
 	trees.append(get_node("XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin/Lorenzo"))
-	trees.append(get_node("XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin/Dinosaurs"))
 	trees.append(get_node("XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin/Humans"))
-	pass
+	trees.append(get_node("XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin/Dinosaurs"))
 
 
 # called by timer node created in _ready()
@@ -52,13 +51,17 @@ func _on_area_3d_area_exited(area):
 func _on_right_controller_button_pressed(name):
 	if name == "ax_button": # right A button
 		teleporting = true
-		pass
+		return
 	if name == "by_button": # right B button 
-		pass
-	pass # Replace with function body.
+		active += 1
+		setTree()
+		swap_tree.emit(active)
 
 
 func _on_timer_timeout():
 	if (meshEntered == true):
 		teleportPos = getPos()
-	pass 
+	return 
+
+signal swap_tree(index: int)
+	

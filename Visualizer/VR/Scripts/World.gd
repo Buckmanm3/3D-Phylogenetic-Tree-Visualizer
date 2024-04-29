@@ -6,6 +6,8 @@ var projection: MeshInstance3D
 var teleportMesh: Area3D
 var Player
 var orgin: Node3D
+var trees: Array
+var active: int = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -24,6 +26,10 @@ func _ready():
 	projection = get_node("TeleportMesh/TeleportOrgin/TeleportProjection")
 	teleportMesh = get_node("TeleportMesh")
 	orgin = get_node("TeleportMesh/TeleportOrgin")
+	
+	trees.append(get_node("TeleportMesh/TeleportOrgin/Lorenzo"))
+	trees.append(get_node("TeleportMesh/TeleportOrgin/Humans"))
+	trees.append(get_node("TeleportMesh/TeleportOrgin/Dinosaurs"))
 	pass
 
 
@@ -50,3 +56,12 @@ func _on_timer_timeout():
 		Player.teleporting = false
 	else:
 		projection.visible = false
+
+
+func _on_player_swap_tree(index):
+	pass # Replace with function body.
+
+func setTree():
+	for t in trees:
+		t.visible = false
+	trees[active%len(trees)].vivisible = true

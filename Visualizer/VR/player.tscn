@@ -77,16 +77,16 @@ shape = SubResource("BoxShape3D_8ecx5")
 [node name="Lorenzo" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin" instance=ExtResource("2_ij880")]
 transform = Transform3D(-0.025, 0, 2.18557e-09, 0, 0.025, 0, -2.18557e-09, 0, -0.025, -0.128958, -0.25, 0.04)
 
-[node name="Dinosaurs" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin" instance=ExtResource("3_vrc8s")]
-transform = Transform3D(-0.05, 0, 4.37114e-09, 0, 0.05, 0, -4.37114e-09, 0, -0.05, 0.007, -0.171, 0)
-visible = false
-
 [node name="Humans" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin" instance=ExtResource("4_ypydm")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.129, -0.25, 0.004)
 visible = false
 
+[node name="Dinosaurs" parent="XROrigin3D/Left Controller/MeshInstance3D/TeleportMesh/TeleportOrgin" instance=ExtResource("3_vrc8s")]
+transform = Transform3D(-0.05, 0, 4.37114e-09, 0, 0.05, 0, -4.37114e-09, 0, -0.05, 0.00699997, -0.171, 0)
+visible = false
+
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.05
 autostart = true
 
 [connection signal="button_pressed" from="XROrigin3D/Right Controller" to="." method="_on_right_controller_button_pressed"]
