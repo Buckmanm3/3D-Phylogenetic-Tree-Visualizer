@@ -59,6 +59,8 @@ func _on_timer_timeout():
 
 
 func _on_player_swap_tree(index):
+	active = index
+	setTree()
 	pass # Replace with function body.
 
 func setTree():
